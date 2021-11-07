@@ -11,7 +11,6 @@ export const signIn=async (data)=>{
 
         });
         localStorage.setItem("token",resp.data.token)
-        localStorage.setItem("userId",resp.data.userData.userId)
         return resp;
       } catch (error) {
         console.log("Error: " + error);
@@ -39,11 +38,14 @@ export const signUp=async (data)=>{
 export const postReview=async (data)=>{
     try {
         let resp = await axios.post(API_URL+'/reviews', {
-            "userId": localStorage.getItem('userId'),
             "animeId": data.animeId,
             "rating": data.rating,
             "review": data.review
                 
+        },{
+          headers:{
+            "Authorization":`Bearer ${localStorage.getItem('token')}`
+          }
         });
         return resp;
     } catch (error) {

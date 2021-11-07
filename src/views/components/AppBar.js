@@ -16,7 +16,7 @@ const AppBar = () => {
     
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            axios.get("http://localhost:9000/api/user/getuser", {
+            axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/user/getuser`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
