@@ -4,7 +4,7 @@ const ANIME_API_BASE_URL="https://api.aniapi.com/v1"
 const param={
     method: 'GET',
     headers: {
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNCIsIm5iZiI6MTYzNTU3NTE4NiwiZXhwIjoxNjM4MTY3MTg2LCJpYXQiOjE2MzU1NzUxODZ9.GIBCqLFS6NqEtZEGClzgB31607VCjWlBHEoI5JYP0nE',
+      'Authorization': `Bearer ${process.env.REACT_APP_ANI_API_KEY}`,
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     }

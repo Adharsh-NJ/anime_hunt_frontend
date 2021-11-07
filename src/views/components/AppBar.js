@@ -31,7 +31,7 @@ const AppBar = () => {
         } else {
             history.push('/signin')
         }
-    }, [])
+    }, [history])
 
     const handleClick = () => {
         history.push('/animes')

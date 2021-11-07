@@ -91,6 +91,7 @@ const AnimeList = () => {
                         } else if (category === "descriptions" && anime.descriptions.en.toLowerCase().includes(searchTerm.toLowerCase())) {
                             return anime
                         }
+                        return null
                     }).map(anime => {
                         return (
                             <Grid item key={anime.id} >
