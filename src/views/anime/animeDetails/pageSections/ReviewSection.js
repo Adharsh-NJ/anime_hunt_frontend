@@ -59,6 +59,7 @@ const ReviewSection = (props) => {
             "rating": rating,
             "review": review
         }) 
+        window.location.reload()
     }
 
     return (
