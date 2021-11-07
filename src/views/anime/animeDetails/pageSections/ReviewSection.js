@@ -58,8 +58,9 @@ const ReviewSection = (props) => {
             "animeId": animeId,
             "rating": rating,
             "review": review
-        }) 
-        window.location.reload()
+        })
+        .then(()=>{window.location.reload()}) 
+        
     }
 
     return (
