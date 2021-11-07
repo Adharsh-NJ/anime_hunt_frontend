@@ -1,10 +1,10 @@
 import axios from 'axios'
-const API_URL=process.env.REACT_APP_BACKEND_API_URL
+
 
 
 export const signIn=async (data)=>{
     try {
-        let resp = await axios.post(API_URL+'/user/signin', {
+        let resp = await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}/user/signin`, {
           
                 "email":data.email,
                 "password":data.password,
@@ -21,7 +21,7 @@ export const signIn=async (data)=>{
 
 export const signUp=async (data)=>{
     try {
-        let resp = await axios.post(API_URL+'/user/signup', {
+        let resp = await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}/user/signup`, {
                 "firstName":data.firstName,
                 "lastName":data.lastName,
                 "email":data.email,
@@ -37,11 +37,10 @@ export const signUp=async (data)=>{
 
 export const postReview=async (data)=>{
     try {
-        let resp = await axios.post(API_URL+'/reviews', {
+        let resp = await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}/reviews`, {
             "animeId": data.animeId,
             "rating": data.rating,
-            "review": data.review
-                
+            "review": data.review  
         },{
           headers:{
             "Authorization":`Bearer ${localStorage.getItem('token')}`
@@ -57,7 +56,7 @@ export const postReview=async (data)=>{
 
 export const getReview=async (id)=>{
     try{
-        let resp= await axios.get(API_URL+`/reviews/${id}`)
+        let resp= await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/reviews/${id}`)
         return resp
     }
     catch (error) {
