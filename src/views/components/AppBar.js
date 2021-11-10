@@ -13,7 +13,8 @@ const AppBar = () => {
     const classes = useStyles()
     const history = useHistory()
     const [userData, setUserData] = useState(null)
-    
+    const name = userData?.firstName === undefined ? "user" : `${userData?.firstName}  ${userData?.lastName}`;
+
     useEffect(() => {
         if (localStorage.getItem('token')) {
             axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/user/getuser`, {
@@ -42,11 +43,12 @@ const AppBar = () => {
             <Grid item xs={12} lg={6}>
                 <Link onClick={() => { handleClick() }}> <img src={logo} alt="logo" className={classes.logoImg} /></Link>
             </Grid>
-            <Grid item xs={12} lg={6} container justifyContent="center" alignItems="center" spacing={3}>
-                <Grid item>
-                    <Typography variant="h4" color="white" fontFamily="BlinkMacSystemFont" fontStyle='italic'>{`Welcome,${userData?.firstName}  ${userData?.lastName}`}</Typography>
+            <Grid item xs={11} lg={6} container justifyContent="center" alignItems="center" spacing={3} className={classes.detailContainer}>
+                <Grid item xs={12} sm={10} md={7} lg={7} container justifyContent="flex-end">
+                    <Typography variant="h4" color="white" fontFamily="BlinkMacSystemFont" fontStyle='italic'>{`Welcome,`}</Typography>
+                    <Typography variant="h4" color="white" fontFamily="BlinkMacSystemFont" fontStyle='italic'>{`${name}`}</Typography>
                 </Grid>
-                <Grid item>
+                <Grid item xs={12} lg={3} container justifyContent="flex-end" >
                     <Button variant='contained' color='error' onClick={() => { localStorage.removeItem('token'); history.push('/signin') }}>Log Out</Button>
                 </Grid>
             </Grid>

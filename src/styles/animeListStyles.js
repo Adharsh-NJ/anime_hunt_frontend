@@ -27,7 +27,6 @@ const animeListStyles={
     },
     inputLabelDropDown:{
         color:"white",
-        
     },
     dropDownSelect:{
         color: "white", height: "50px"
@@ -51,7 +50,7 @@ const animeListStyles={
             width: '0.4em'
           },
           '&::-webkit-scrollbar-track': {
-            boxShadow: 'inset 0 0 6px rgba(140,70,50)',
+            boxShadow: 'inset 0 0 6px rgba(0,0,0)',
             webkitBoxShadow: 'inset 0 0 6px rgba(0,0,0,0.00)'
           },
           '&::-webkit-scrollbar-thumb': {

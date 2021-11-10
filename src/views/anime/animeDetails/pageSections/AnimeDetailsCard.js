@@ -52,7 +52,7 @@ const AnimeDetailsCard = (props) => {
                 <Grid item container xs={12} spacing={1}>
                     {genres?.map((val, index) => {
                             return (
-                                <Grid item xs={2} key={index}>
+                                <Grid item xs={4} lg={3} key={index} >
                                     <CategoryBox data={val} color={data?.cover_color||"white"}  />
                                 </Grid>
                             )
