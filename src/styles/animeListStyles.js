@@ -23,7 +23,11 @@ const animeListStyles={
         paddingLeft: "10px",
     },
     dropDown:{
-        backgroundColor: "black", borderRadius: "10px", border:"2px solid white",width:"130px",marginRight:"40px" 
+        backgroundColor: "black",
+         borderRadius: "10px",
+          border:"2px solid white",
+          width:"100px",
+          marginRight:"40px" 
     },
     inputLabelDropDown:{
         color:"white",
@@ -37,8 +41,13 @@ const animeListStyles={
     animeSearch:{
         backgroundColor:"black",
         border:"2px solid white",
-        borderRadius:"50px",
-        height:"45px",
+        borderRadius:"10px",
+        height:"42px",
+    },
+    searchIcon:{
+        '@media(minWidth: 580px)':{
+           disable:'true'
+        }
     },
     cardContainer:{
         height:"80vh",

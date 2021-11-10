@@ -22,7 +22,6 @@ const AppBar = () => {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
             }).then(res => {
-                console.log(res)
                 setUserData(res.data.data)
             }).catch(err => {
                 console.log(err);
@@ -39,7 +38,7 @@ const AppBar = () => {
     }
 
     return (
-        <Grid container sm={12} className={classes.appBarContainer} alignSelf="flex-start" >
+        <Grid container className={classes.appBarContainer} alignSelf="flex-start" >
             <Grid item xs={12} lg={6}>
                 <Link onClick={() => { handleClick() }}> <img src={logo} alt="logo" className={classes.logoImg} /></Link>
             </Grid>

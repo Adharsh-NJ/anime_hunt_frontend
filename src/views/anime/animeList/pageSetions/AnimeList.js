@@ -17,11 +17,21 @@ const AnimeList = () => {
     const [searchTerm, setSearchTerm] = useState('')
     const [animeData, setAnimeData] = useState([])
     const [category, setCategory] = useState('');
-
+    const [showSearchIcon,setShowSearchIcon]=useState(false)
+    const mediaQueries = window.matchMedia( "(max-width: 570px)" );
+    
     const handleChange = (event) => {
         setCategory(event.target.value);
     };
 
+    useEffect(() => {
+        if(!mediaQueries.matches){
+            setShowSearchIcon(true)
+        }else{
+            setShowSearchIcon(false)
+        }
+    },[mediaQueries])
+    
     useEffect(() => {
         async function fetchAnime() {
             try {
@@ -35,20 +45,21 @@ const AnimeList = () => {
     }, [])
 
     return (
-        <Grid container className={classes.listContainer} xs={12} justifyContent="flex-end" >
-            <Grid item container xs={12} lg={8} >
+        <Grid container className={classes.listContainer}  justifyContent="center" >
+            <Grid item container xs={12} lg={10} >
                 <Grid container item justifyContent="center" alignItems="flex-start" xs={12} >
-                    <Grid container item xs={12} className={classes.searchContainer} justifyContent="flex-end" spacing={3}>
+                    <Grid container item xs={12} className={classes.searchContainer} justifyContent="flex-end" spacing={1}>
                         <Grid item container xs={12} lg={5} justifyContent="flex-end" alignItems="flex-end">
                             <Grid item className={classes.animeSearch}>
                                 <InputBase type="text" placeholder="Search..." className={classes.searchBar} style={{ color: "white" }} onChange={event => { setSearchTerm(event.target.value) }} />
-                                <IconButton >
-                                    <SearchIcon color="warning" />
-                                </IconButton>
+                              {showSearchIcon&&<IconButton className={classes.SearchIcon} >
+                                    <SearchIcon color="error" />
+                                </IconButton>} 
+                                
                             </Grid>
                         </Grid>
-                        <Grid item container xs={12} lg={3} className={classes.dropDownContainer} spacing={2} justifyContent="flex-end">
-                            <Grid item xs={4} md={3} lg={10} container >
+                        <Grid item container xs={12} lg={2} className={classes.dropDownContainer} spacing={2} justifyContent="flex-end">
+                            <Grid item xs={8} md={3} lg={10} container justifyContent="flex-end">
                                 <FormControl className={classes.dropDown} style={{ border: "2px solid grey" }}>
                                     <InputLabel id="category-select-label" style={{ color: "white" }}>Search By</InputLabel>
                                     <Select
