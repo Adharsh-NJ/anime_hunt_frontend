@@ -96,12 +96,12 @@ const ReviewSection = (props) => {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item container className={classes.reviewContainer}  >
+            {reviewList!==undefined&&reviewList!==null&&reviewList.length!==0&& <Grid item container className={classes.reviewContainer}  >
                 <Grid item xs={12} container justifyContent="center" >
                     <Typography variant="h3" color='white'>Reviews Section</Typography>
                 </Grid>
                 <ReviewCard data={reviewList} />
-            </Grid>
+            </Grid>}
         </Grid>
     )
 }

@@ -66,6 +66,9 @@ const animeListStyles={
             backgroundColor: 'white',
             outline: '1px solid slategrey'
           }
+    },
+    animeCard:{
+         border:"2px solid white",
     }
 }
 

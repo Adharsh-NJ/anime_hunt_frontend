@@ -8,11 +8,15 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import ReactCardFlip from 'react-card-flip'
 import ReactPlayer from 'react-player'
+import styles from "../../../../styles/animeListStyles"
+import { makeStyles } from '@mui/styles';
 import { useHistory } from "react-router-dom";
 
+const useStyles=makeStyles(styles)
 const AnimeCard = (props) => {
   const data = props.anime
   const history = useHistory();
+  const classes=useStyles()
   const [isFlipped, setIsFlipped] = useState(false)
 
   const handleClick = (id) => {
@@ -20,8 +24,8 @@ const AnimeCard = (props) => {
   }
 
   return (
-    <ReactCardFlip isFlipped={isFlipped} flipDirection='vertical' key={data.id}>
-      <Card sx={{ maxWidth: 345 }} onClick={() => { data?.trailer_url && setIsFlipped(!isFlipped) }} style={{ background: "black" }}>
+    <ReactCardFlip isFlipped={isFlipped} flipDirection='horizontal' key={data.id}>
+      <Card sx={{ maxWidth: 345 }} onClick={() => { data?.trailer_url && setIsFlipped(!isFlipped) }} className={classes.animeCard} style={{backgroundColor:"black",borderRadius:"12px" }}>
         <CardMedia
           component="img"
           height="140"
@@ -41,7 +45,7 @@ const AnimeCard = (props) => {
           <Button size="small" onClick={() => { handleClick(data.id) }}>View More</Button>
         </CardActions>
       </Card>
-      <Card sx={{ maxWidth: 345 }} onClick={() => { setIsFlipped(!isFlipped) }} style={{ background: "black" }} onMouseLeave={() => { setIsFlipped((prev) => !prev); }} >
+      <Card sx={{ maxWidth: 345 }} onClick={() => { setIsFlipped(!isFlipped) }} className={classes.animeCard} style={{backgroundColor:"black",borderRadius:"12px" }} onMouseLeave={() => { setIsFlipped((prev) => !prev); }} >
         <CardActionArea >
           {isFlipped && <ReactPlayer url={data.trailer_url} width="300" controls="true" />}
           <CardContent>
