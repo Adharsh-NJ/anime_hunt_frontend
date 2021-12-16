@@ -39,7 +39,6 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     }).then(res=>{
-      console.log(res);
       history.push('/animes')
     })
     .catch(err=>{

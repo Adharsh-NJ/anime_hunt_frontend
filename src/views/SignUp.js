@@ -42,17 +42,12 @@ export default function SignUp() {
         email: data.get('email'),
         password: data.get('password'),
       }).then(res => {
-        console.log(res);
         res.status === 201 && history.push('/signin')
       })
         .catch(err => {
           console.log(err);
         })
     }
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
   };
 
   return (
