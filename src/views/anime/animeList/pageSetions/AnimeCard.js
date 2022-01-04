@@ -37,7 +37,7 @@ const AnimeCard = (props) => {
             {data.titles.en}
           </Typography>
           <Typography variant="body2" color="white" style={{ display:"inline-block" }}>
-            {data.descriptions.en.slice(0, 200) + "..."}
+            {data.descriptions.en?.slice(0, 200) + "..."}
           </Typography>
           {data?.trailer_url && <Typography variant='h6' color="#FABB4C" style={{ paddingTop: "10px" }}>Click on the card to watch trailer</Typography>}
         </CardContent>
